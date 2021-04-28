@@ -264,6 +264,11 @@ IotMqttError_t _IotMqtt_connectSerializeWrapper( const IotMqttConnectInfo_t * pC
 
         /* Converting status code from MQTT v4_beta2 status to MQTT v4_beta 1 status. */
         status = convertReturnCode( managedMqttStatus );
+
+        if (status != IOT_MQTT_SUCCESS) {
+            /* Free allocated buffer on error. */
+            IotMqtt_FreeMessage(networkBuffer.pBuffer);
+        }
     }
 
     if( status == IOT_MQTT_SUCCESS )
@@ -304,6 +309,11 @@ IotMqttError_t _IotMqtt_disconnectSerializeWrapper( uint8_t ** pDisconnectPacket
 
         /* Converting status code from MQTT v4_beta2 status to MQTT v4_beta 1 status. */
         status = convertReturnCode( managedMqttStatus );
+
+        if (status != IOT_MQTT_SUCCESS) {
+            /* Free allocated buffer on error. */
+            IotMqtt_FreeMessage(networkBuffer.pBuffer);
+        }
     }
 
     if( status == IOT_MQTT_SUCCESS )
@@ -366,6 +376,11 @@ IotMqttError_t _IotMqtt_subscribeSerializeWrapper( const IotMqttSubscription_t *
 
         /* Converting status code from MQTT v4_beta2 status to MQTT v4_beta 1 status. */
         status = convertReturnCode( managedMqttStatus );
+
+        if (status != IOT_MQTT_SUCCESS) {
+            /* Free memory allocated to subscription list on error. */
+            IotMqtt_FreeMessage(subscriptionList);
+        }
     }
 
     if( status == IOT_MQTT_SUCCESS )
@@ -387,6 +402,14 @@ IotMqttError_t _IotMqtt_subscribeSerializeWrapper( const IotMqttSubscription_t *
 
         /* Converting status code from MQTT v4_beta2 status to MQTT v4_beta 1 status. */
         status = convertReturnCode( managedMqttStatus );
+
+        if (status != IOT_MQTT_SUCCESS) {
+            /* Free allocated buffer on error. */
+            IotMqtt_FreeMessage(networkBuffer.pBuffer);
+
+            /* Free memory allocated to subscription list on error. */
+            IotMqtt_FreeMessage(subscriptionList);
+        }
     }
 
     if( status == IOT_MQTT_SUCCESS )
@@ -450,6 +473,11 @@ IotMqttError_t _IotMqtt_unsubscribeSerializeWrapper( const IotMqttSubscription_t
 
         /* Converting status code from MQTT v4_beta2 status to MQTT v4_beta 1 status. */
         status = convertReturnCode( managedMqttStatus );
+
+        if (status != IOT_MQTT_SUCCESS) {
+            /* Free memory allocated to unsubscription list on error. */
+            IotMqtt_FreeMessage(unsubscriptionList);
+        }
     }
 
     if( status == IOT_MQTT_SUCCESS )
@@ -470,6 +498,14 @@ IotMqttError_t _IotMqtt_unsubscribeSerializeWrapper( const IotMqttSubscription_t
 
         /* Converting status code from MQTT v4_beta2 status to MQTT v4_beta 1 status. */
         status = convertReturnCode( managedMqttStatus );
+
+        if (status != IOT_MQTT_SUCCESS) {
+            /* Free allocated buffer on error. */
+            IotMqtt_FreeMessage(networkBuffer.pBuffer);
+
+            /* Free memory allocated to unsubscription list on error. */
+            IotMqtt_FreeMessage(unsubscriptionList);
+        }
     }
 
     if( status == IOT_MQTT_SUCCESS )
@@ -541,6 +577,11 @@ IotMqttError_t _IotMqtt_publishSerializeWrapper( const IotMqttPublishInfo_t * pP
 
         /* Converting status code from MQTT v4_beta2 status to MQTT v4_beta 1 status. */
         status = convertReturnCode( managedMqttStatus );
+
+        if (status != IOT_MQTT_SUCCESS) {
+            /* Free allocated buffer on error. */
+            IotMqtt_FreeMessage(networkBuffer.pBuffer);
+        }
     }
 
     if( status == IOT_MQTT_SUCCESS )
@@ -582,6 +623,11 @@ IotMqttError_t _IotMqtt_pingreqSerializeWrapper( uint8_t ** pPingreqPacket,
 
         /* Converting status code from MQTT v4_beta2 status to MQTT v4_beta 1 status. */
         serializeStatus = convertReturnCode( managedMqttStatus );
+
+        if (serializeStatus != IOT_MQTT_SUCCESS) {
+            /* Free allocated buffer on error. */
+            IotMqtt_FreeMessage(networkBuffer.pBuffer);
+        }
     }
 
     if( serializeStatus == IOT_MQTT_SUCCESS )
@@ -814,6 +860,10 @@ IotMqttError_t _IotMqtt_pubackSerializeWrapper( uint16_t packetIdentifier,
     if( status == IOT_MQTT_SUCCESS )
     {
         *pPubackPacket = networkBuffer.pBuffer;
+    }
+    else {
+        /* Free allocated buffer on error. */
+        IotMqtt_FreeMessage(networkBuffer.pBuffer);
     }
 
     return status;
