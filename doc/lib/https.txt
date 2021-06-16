@@ -172,6 +172,7 @@ See @subpage https_demo_config for configuration settings that change the behavi
         *          CONFIG_TCP_ECHO_CLIENT_DEMO_ENABLED
         *          CONFIG_DEFENDER_DEMO_ENABLED
         *          CONFIG_POSIX_DEMO_ENABLED
+        *          CONFIG_OTA_UPDATE_DEMO_ENABLED
         *          CONFIG_HTTPS_SYNC_DOWNLOAD_DEMO_ENABLED
         *          CONFIG_HTTPS_ASYNC_DOWNLOAD_DEMO_ENABLED
         *          CONFIG_HTTPS_SYNC_UPLOAD_DEMO_ENABLED
@@ -232,6 +233,7 @@ See @subpage https_demo_config for configuration settings that change the behavi
         *          CONFIG_TCP_ECHO_CLIENT_DEMO_ENABLED
         *          CONFIG_DEFENDER_DEMO_ENABLED
         *          CONFIG_POSIX_DEMO_ENABLED
+        *          CONFIG_OTA_UPDATE_DEMO_ENABLED
         *          CONFIG_HTTPS_SYNC_DOWNLOAD_DEMO_ENABLED
         *          CONFIG_HTTPS_ASYNC_DOWNLOAD_DEMO_ENABLED
         *          CONFIG_HTTPS_SYNC_UPLOAD_DEMO_ENABLED
@@ -351,6 +353,7 @@ Notes:
         *          CONFIG_TCP_ECHO_CLIENT_DEMO_ENABLED
         *          CONFIG_DEFENDER_DEMO_ENABLED
         *          CONFIG_POSIX_DEMO_ENABLED
+        *          CONFIG_OTA_UPDATE_DEMO_ENABLED
         *          CONFIG_HTTPS_SYNC_DOWNLOAD_DEMO_ENABLED
         *          CONFIG_HTTPS_ASYNC_DOWNLOAD_DEMO_ENABLED
         *          CONFIG_HTTPS_SYNC_UPLOAD_DEMO_ENABLED
@@ -392,6 +395,7 @@ Notes:
         *          CONFIG_TCP_ECHO_CLIENT_DEMO_ENABLED
         *          CONFIG_DEFENDER_DEMO_ENABLED
         *          CONFIG_POSIX_DEMO_ENABLED
+        *          CONFIG_OTA_UPDATE_DEMO_ENABLED
         *          CONFIG_HTTPS_SYNC_DOWNLOAD_DEMO_ENABLED
         *          CONFIG_HTTPS_ASYNC_DOWNLOAD_DEMO_ENABLED
         *          CONFIG_HTTPS_SYNC_UPLOAD_DEMO_ENABLED
